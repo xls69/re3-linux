@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_ANIMBLENDASSOCIATION_H__
+#define __GTA_ANIMBLENDASSOCIATION_H__
 
 #include "AnimBlendList.h"
 #include "AnimBlendNode.h"
@@ -89,3 +90,5 @@ public:
 };
 
 VALIDATE_SIZE(CAnimBlendAssociation, 0x40);
+
+#endif // __GTA_ANIMBLENDASSOCIATION_H__

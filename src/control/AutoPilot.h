@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_AUTOPILOT_H__
+#define __GTA_AUTOPILOT_H__
 #include "Timer.h"
 
 class CVehicle;
@@ -121,3 +122,5 @@ public:
 };
 
 VALIDATE_SIZE(CAutoPilot, 0x70);
+
+#endif // __GTA_AUTOPILOT_H__

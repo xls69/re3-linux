@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_BOAT_H__
+#define __GTA_BOAT_H__
 
 #include "Vehicle.h"
 
@@ -79,3 +80,5 @@ VALIDATE_SIZE(CBoat, 0x484);
 extern float MAX_WAKE_LENGTH;
 extern float MIN_WAKE_INTERVAL;
 extern float WAKE_LIFETIME;
+
+#endif // __GTA_BOAT_H__

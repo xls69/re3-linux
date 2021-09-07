@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_GANGS_H__
+#define __GTA_GANGS_H__
 
 struct CGangInfo
 {
@@ -42,3 +43,5 @@ public:
 private:
 	static CGangInfo Gang[NUM_GANGS];
 };
+
+#endif // __GTA_GANGS_H__

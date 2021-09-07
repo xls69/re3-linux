@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_TIMEMODELINFO_H__
+#define __GTA_TIMEMODELINFO_H__
 
 #include "SimpleModelInfo.h"
 
@@ -19,3 +20,5 @@ public:
 };
 
 VALIDATE_SIZE(CTimeModelInfo, 0x58);
+
+#endif // __GTA_TIMEMODELINFO_H__

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_GLASS_H__
+#define __GTA_GLASS_H__
 
 class CEntity;
 
@@ -50,3 +51,5 @@ public:
 	static void WasGlassHitByBullet(CEntity *entity, CVector point);
 	static void WindowRespondsToExplosion(CEntity *entity, CVector point);
 };
+
+#endif // __GTA_GLASS_H__

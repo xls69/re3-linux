@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_OBJECT_H__
+#define __GTA_OBJECT_H__
 
 #include "Physical.h"
 
@@ -92,3 +93,5 @@ public:
 };
 
 VALIDATE_SIZE(CObject, 0x198);
+
+#endif // __GTA_OBJECT_H__

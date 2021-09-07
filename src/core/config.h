@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_CONFIG_H__
+#define __GTA_CONFIG_H__
 
 // disables (most) stuff that wasn't in original gta3.exe
 #ifdef __MWERKS__
@@ -496,3 +497,5 @@ enum Config {
 #if defined(AUDIO_REFLECTIONS) && GTA_VERSION < GTA3_PC_10
 #error AUDIO_REFLECTIONS cannot work with versions below GTA3_PC_10
 #endif
+
+#endif // __GTA_CONFIG_H__

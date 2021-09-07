@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_GAME_H__
+#define __GTA_GAME_H__
 
 enum eLevelName {
 	LEVEL_IGNORE = -1, // beware, this is only used in CPhysical's m_nZoneLevel
@@ -47,3 +48,5 @@ public:
 	static void DrasticTidyUpMemory(bool);
 	static void ProcessTidyUpMemory(void);
 };
+
+#endif // __GTA_GAME_H__

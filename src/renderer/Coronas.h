@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_CORONAS_H__
+#define __GTA_CORONAS_H__
 
 extern RwTexture *gpCoronaTexture[9];
 
@@ -99,3 +100,5 @@ public:
 	static void RenderReflections(void);
 	static void DoSunAndMoon(void);
 };
+
+#endif // __GTA_CORONAS_H__

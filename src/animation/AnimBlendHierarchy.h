@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_ANIMBLENDHIERARCHY_H__
+#define __GTA_ANIMBLENDHIERARCHY_H__
 
 #include "templates.h"
 
@@ -31,3 +32,5 @@ public:
 };
 
 VALIDATE_SIZE(CAnimBlendHierarchy, 0x28);
+
+#endif // __GTA_ANIMBLENDHIERARCHY_H__

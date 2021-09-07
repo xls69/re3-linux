@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_HUD_H__
+#define __GTA_HUD_H__
 #include "Sprite2d.h"
 
 #define HELP_MSG_LENGTH 256
@@ -79,3 +80,5 @@ public:
 	static void SetBigMessage(wchar *message, uint16 style);
 	static void SetPagerMessage(wchar *message);
 };
+
+#endif // __GTA_HUD_H__

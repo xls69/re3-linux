@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_MODELINFO_H__
+#define __GTA_MODELINFO_H__
 
 #include "2dEffect.h"
 #include "BaseModelInfo.h"
@@ -53,3 +54,5 @@ public:
 	static void ConstructMloClumps();
 	static void ReInit2dEffects();
 };
+
+#endif // __GTA_MODELINFO_H__

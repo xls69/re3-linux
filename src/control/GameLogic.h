@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_GAMELOGIC_H__
+#define __GTA_GAMELOGIC_H__
 
 class CGameLogic
 {
@@ -11,3 +12,5 @@ public:
 
 	static uint8 ActivePlayers;
 };
+
+#endif // __GTA_GAMELOGIC_H__

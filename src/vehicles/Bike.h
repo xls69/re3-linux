@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_BIKE_H__
+#define __GTA_BIKE_H__
 
 #include "Vehicle.h"
 
@@ -43,3 +44,5 @@ public:
 
 	float m_fTraction;
 };
+
+#endif // __GTA_BIKE_H__

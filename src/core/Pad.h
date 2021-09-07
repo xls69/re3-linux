@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_PAD_H__
+#define __GTA_PAD_H__
 
 enum {
 	PLAYERCONTROL_ENABLED = 0,
@@ -472,3 +473,5 @@ extern CPad Pads[MAX_PADS];
 #ifdef ALLCARSHELI_CHEAT
 extern bool bAllCarCheat;
 #endif
+
+#endif // __GTA_PAD_H__

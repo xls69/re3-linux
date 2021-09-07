@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_PED_H__
+#define __GTA_PED_H__
 
 #include "RwHelper.h"
 #include "AnimManager.h"
@@ -960,3 +961,5 @@ void FinishFuckUCB(CAnimBlendAssociation *assoc, void *arg);
 #ifndef PED_SKIN
 VALIDATE_SIZE(CPed, 0x53C);
 #endif
+
+#endif // __GTA_PED_H__

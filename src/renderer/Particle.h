@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_PARTICLE_H__
+#define __GTA_PARTICLE_H__
 #include "ParticleMgr.h"
 
 
@@ -92,3 +93,5 @@ public:
 };
 
 VALIDATE_SIZE(CParticle, 0x68);
+
+#endif // __GTA_PARTICLE_H__

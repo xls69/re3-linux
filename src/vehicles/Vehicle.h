@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_VEHICLE_H__
+#define __GTA_VEHICLE_H__
 
 #include "Physical.h"
 #include "AutoPilot.h"
@@ -291,3 +292,5 @@ public:
 VALIDATE_SIZE(CVehicle, 0x288);
 
 void DestroyVehicleAndDriverAndPassengers(CVehicle* pVehicle);
+
+#endif // __GTA_VEHICLE_H__

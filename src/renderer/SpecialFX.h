@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_SPECIALFX_H__
+#define __GTA_SPECIALFX_H__
 
 class CSpecialFX
 {
@@ -222,3 +223,5 @@ public:
 	static void StartBoatFoamAnimation();
 	static void UpdateBoatFoamAnimation(CMatrix*);
 };
+
+#endif // __GTA_SPECIALFX_H__

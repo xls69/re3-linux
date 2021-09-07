@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_POPULATION_H__
+#define __GTA_POPULATION_H__
 
 #include "Game.h"
 #include "PedType.h"
@@ -87,3 +88,5 @@ public:
 	static bool TestRoomForDummyObject(CObject*);
 	static bool TestSafeForRealObject(CDummyObject*);
 };
+
+#endif // __GTA_POPULATION_H__

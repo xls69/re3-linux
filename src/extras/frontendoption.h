@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_FRONTENDOPTION_H__
+#define __GTA_FRONTENDOPTION_H__
 #include "common.h"
 
 #ifdef CUSTOM_FRONTEND_OPTIONS
@@ -91,3 +92,5 @@ void FrontendOptionAddDynamic(const char* gxtKey, DrawFunc rightTextDrawFunc, in
 
 uint8 FrontendScreenAdd(const char* gxtKey, eMenuSprites sprite, int prevPage, int columnWidth, int headerHeight, int lineHeight, int8 font, float fontScaleX, float fontScaleY, int8 alignment, bool showLeftRightHelper, ReturnPrevPageFunc returnPrevPageFunc = nil);
 #endif
+
+#endif // __GTA_FRONTENDOPTION_H__

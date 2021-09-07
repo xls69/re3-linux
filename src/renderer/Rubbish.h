@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_RUBBISH_H__
+#define __GTA_RUBBISH_H__
 
 class CVehicle;
 
@@ -53,3 +54,5 @@ public:
 	static void Init(void);
 	static void Shutdown(void);
 };
+
+#endif // __GTA_RUBBISH_H__

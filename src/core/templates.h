@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_TEMPLATES_H__
+#define __GTA_TEMPLATES_H__
 
 template<typename T, int32 n>
 class CStore
@@ -267,3 +268,5 @@ public:
 		return n;
 	}
 };
+
+#endif // __GTA_TEMPLATES_H__

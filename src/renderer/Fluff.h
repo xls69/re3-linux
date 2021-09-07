@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_FLUFF_H__
+#define __GTA_FLUFF_H__
 #include "common.h"
 #include "Vector.h"
 
@@ -104,3 +105,5 @@ public:
 	void Update();
 	void Render();
 };
+
+#endif // __GTA_FLUFF_H__

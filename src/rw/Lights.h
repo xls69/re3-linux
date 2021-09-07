@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_LIGHTS_H__
+#define __GTA_LIGHTS_H__
 
 extern RpLight *pAmbient;
 extern RpLight *pDirect;
@@ -24,3 +25,5 @@ void SetAmbientColours(void);
 void SetAmbientColoursForPedsCarsAndObjects(void);
 void SetAmbientColoursToIndicateRoadGroup(int i);
 void SetAmbientColours(RwRGBAReal *color);
+
+#endif // __GTA_LIGHTS_H__

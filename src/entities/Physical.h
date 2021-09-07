@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_PHYSICAL_H__
+#define __GTA_PHYSICAL_H__
 
 #include "Lists.h"
 #include "Timer.h"
@@ -159,3 +160,5 @@ public:
 };
 
 VALIDATE_SIZE(CPhysical, 0x128);
+
+#endif // __GTA_PHYSICAL_H__

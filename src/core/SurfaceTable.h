@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_SURFACETABLE_H__
+#define __GTA_SURFACETABLE_H__
 
 enum eSurfaceType
 {
@@ -78,3 +79,5 @@ public:
 	static float GetWetMultiplier(uint8 surfaceType);
 	static float GetAdhesiveLimit(CColPoint &colpoint);
 };
+
+#endif // __GTA_SURFACETABLE_H__

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_PEDPLACEMENT_H__
+#define __GTA_PEDPLACEMENT_H__
 
 class CPedPlacement {
 public:
@@ -6,3 +7,5 @@ public:
 	static CEntity* IsPositionClearOfCars(Const CVector*);
 	static bool IsPositionClearForPed(CVector*);
 };
+
+#endif // __GTA_PEDPLACEMENT_H__

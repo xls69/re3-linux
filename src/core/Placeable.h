@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_PLACEABLE_H__
+#define __GTA_PLACEABLE_H__
 
 class CPlaceable
 {
@@ -35,3 +36,5 @@ public:
 };
 
 VALIDATE_SIZE(CPlaceable, 0x4C);
+
+#endif // __GTA_PLACEABLE_H__

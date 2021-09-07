@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_WANTED_H__
+#define __GTA_WANTED_H__
 
 #include "Crime.h"
 
@@ -56,3 +57,5 @@ public:
 };
 
 VALIDATE_SIZE(CWanted, 0x204);
+
+#endif // __GTA_WANTED_H__

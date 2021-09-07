@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_COLBOX_H__
+#define __GTA_COLBOX_H__
 
 #include "SurfaceTable.h"
 
@@ -14,3 +15,5 @@ struct CColBox
 
 	CColBox& operator=(const CColBox &other);
 };
+
+#endif // __GTA_COLBOX_H__

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_WATERLEVEL_H__
+#define __GTA_WATERLEVEL_H__
 
 #define WATER_Z_OFFSET (1.5f)
 
@@ -101,3 +102,5 @@ public:
 	static void    AllocateBoatWakeArray();
 	static void    FreeBoatWakeArray();
 };
+
+#endif // __GTA_WATERLEVEL_H__

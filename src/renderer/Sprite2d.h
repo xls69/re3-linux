@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_SPRITE2D_H__
+#define __GTA_SPRITE2D_H__
 
 class CSprite2d
 {
@@ -51,3 +52,5 @@ public:
 
 	static RwIm2DVertex* GetVertices() { return maVertices; };
 };
+
+#endif // __GTA_SPRITE2D_H__

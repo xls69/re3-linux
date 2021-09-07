@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_DUMMYPED_H__
+#define __GTA_DUMMYPED_H__
 
 #include "Dummy.h"
 
@@ -10,3 +11,5 @@ class CDummyPed : CDummy
 };
 
 VALIDATE_SIZE(CDummyPed, 0x70);
+
+#endif // __GTA_DUMMYPED_H__

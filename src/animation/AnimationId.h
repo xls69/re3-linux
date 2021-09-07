@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_ANIMATIONID_H__
+#define __GTA_ANIMATIONID_H__
 
 enum AnimationId
 {
@@ -208,3 +209,5 @@ enum AnimationId
 
 	ANIM_STD_NUM
 };
+
+#endif // __GTA_ANIMATIONID_H__

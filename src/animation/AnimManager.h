@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_ANIMMANAGER_H__
+#define __GTA_ANIMMANAGER_H__
 
 #include "AnimBlendHierarchy.h"
 #include "AnimationId.h"
@@ -92,3 +93,5 @@ public:
 	static void LoadAnimFile(int fd, bool compress);
 	static void RemoveLastAnimFile(void);
 };
+
+#endif // __GTA_ANIMMANAGER_H__

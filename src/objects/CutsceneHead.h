@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_CUTSCENEHEAD_H__
+#define __GTA_CUTSCENEHEAD_H__
 
 #include "CutsceneObject.h"
 
@@ -26,3 +27,5 @@ public:
 #ifndef PED_SKIN
 VALIDATE_SIZE(CCutsceneHead, 0x19C);
 #endif
+
+#endif // __GTA_CUTSCENEHEAD_H__

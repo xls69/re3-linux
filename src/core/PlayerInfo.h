@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_PLAYERINFO_H__
+#define __GTA_PLAYERINFO_H__
 
 #include "ColModel.h"
 
@@ -95,3 +96,5 @@ const CVector &FindPlayerCentreOfWorld_NoSniperShift(void);
 float FindPlayerHeading(void);
 
 VALIDATE_SIZE(CPlayerInfo, 0x13C);
+
+#endif // __GTA_PLAYERINFO_H__

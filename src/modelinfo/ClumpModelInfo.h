@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_CLUMPMODELINFO_H__
+#define __GTA_CLUMPMODELINFO_H__
 
 #include "BaseModelInfo.h"
 
@@ -52,3 +53,5 @@ public:
 };
 
 VALIDATE_SIZE(CClumpModelInfo, 0x34);
+
+#endif // __GTA_CLUMPMODELINFO_H__

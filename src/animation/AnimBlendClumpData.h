@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_ANIMBLENDCLUMPDATA_H__
+#define __GTA_ANIMBLENDCLUMPDATA_H__
 
 #include "AnimBlendList.h"
 
@@ -55,3 +56,5 @@ public:
 #ifndef PED_SKIN
 VALIDATE_SIZE(CAnimBlendClumpData, 0x14);
 #endif
+
+#endif // __GTA_ANIMBLENDCLUMPDATA_H__

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_EMERGENCYPED_H__
+#define __GTA_EMERGENCYPED_H__
 
 #include "Ped.h"
 
@@ -39,3 +40,5 @@ public:
 #ifndef PED_SKIN
 VALIDATE_SIZE(CEmergencyPed, 0x554);
 #endif
+
+#endif // __GTA_EMERGENCYPED_H__

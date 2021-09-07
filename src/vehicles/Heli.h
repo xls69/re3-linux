@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_HELI_H__
+#define __GTA_HELI_H__
 
 #include "Vehicle.h"
 
@@ -99,3 +100,5 @@ public:
 
 VALIDATE_SIZE(CHeli, 0x33C);
 
+
+#endif // __GTA_HELI_H__

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_STATS_H__
+#define __GTA_STATS_H__
 
 #include "PedType.h"
 
@@ -88,3 +89,5 @@ public:
 	static void SaveStats(uint8 *buf, uint32 *size);
 	static void LoadStats(uint8 *buf, uint32 size);
 };
+
+#endif // __GTA_STATS_H__

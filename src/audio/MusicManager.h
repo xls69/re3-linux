@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_MUSICMANAGER_H__
+#define __GTA_MUSICMANAGER_H__
 
 #include "audio_enums.h"
 
@@ -87,3 +88,5 @@ public:
 VALIDATE_SIZE(cMusicManager, 0x95C);
 
 extern cMusicManager MusicManager;
+
+#endif // __GTA_MUSICMANAGER_H__

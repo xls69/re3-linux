@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_PEDMODELINFO_H__
+#define __GTA_PEDMODELINFO_H__
 
 #include "ClumpModelInfo.h"
 #include "ColModel.h"
@@ -65,3 +66,5 @@ public:
 #ifndef PED_SKIN
 VALIDATE_SIZE(CPedModelInfo, 0x48);
 #endif
+
+#endif // __GTA_PEDMODELINFO_H__

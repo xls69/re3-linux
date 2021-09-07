@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_VISIBILITYPLUGINS_H__
+#define __GTA_VISIBILITYPLUGINS_H__
 
 #include "templates.h"
 
@@ -139,3 +140,5 @@ public:
 };
 
 RpMaterial *SetAlphaCB(RpMaterial *material, void *data);
+
+#endif // __GTA_VISIBILITYPLUGINS_H__

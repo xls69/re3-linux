@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_HANDLINGMGR_H__
+#define __GTA_HANDLINGMGR_H__
 
 #include "Transmission.h"
 
@@ -154,3 +155,5 @@ public:
 };
 VALIDATE_SIZE(cHandlingDataMgr, 0x3030);
 extern cHandlingDataMgr mod_HandlingManager;
+
+#endif // __GTA_HANDLINGMGR_H__

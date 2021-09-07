@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_ANIMBLENDSEQUENCE_H__
+#define __GTA_ANIMBLENDSEQUENCE_H__
 
 #include "Quaternion.h"
 
@@ -66,3 +67,5 @@ public:
 #ifndef PED_SKIN
 VALIDATE_SIZE(CAnimBlendSequence, 0x2C);
 #endif
+
+#endif // __GTA_ANIMBLENDSEQUENCE_H__

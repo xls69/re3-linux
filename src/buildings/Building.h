@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_BUILDING_H__
+#define __GTA_BUILDING_H__
 
 #include "Entity.h"
 
@@ -19,3 +20,5 @@ public:
 
 VALIDATE_SIZE(CBuilding, 0x64);
 
+
+#endif // __GTA_BUILDING_H__

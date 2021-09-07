@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_REPLAY_H__
+#define __GTA_REPLAY_H__
 
 #include "Pools.h"
 #include "World.h"
@@ -327,3 +328,5 @@ private:
 	static size_t FindSizeOfPacket(uint8);
 #endif
 };
+
+#endif // __GTA_REPLAY_H__

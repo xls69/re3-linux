@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_SIMPLEMODELINFO_H__
+#define __GTA_SIMPLEMODELINFO_H__
 
 #include "BaseModelInfo.h"
 
@@ -63,3 +64,5 @@ public:
 };
 
 VALIDATE_SIZE(CSimpleModelInfo, 0x4C);
+
+#endif // __GTA_SIMPLEMODELINFO_H__

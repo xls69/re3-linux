@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_GENERAL_H__
+#define __GTA_GENERAL_H__
 
 #include <ctype.h>
 
@@ -155,3 +156,5 @@ public:
 	static int32 GetRandomNumberInRange(int32 low, int32 high)
 		{ return low + (high - low)*(GetRandomNumber()/float(MYRAND_MAX + 1)); }
 };
+
+#endif // __GTA_GENERAL_H__

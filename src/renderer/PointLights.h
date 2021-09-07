@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_POINTLIGHTS_H__
+#define __GTA_POINTLIGHTS_H__
 
 class CRegisteredPointLight
 {
@@ -43,3 +44,5 @@ public:
 	static void RemoveLightsAffectingObject(void);
 	static void RenderFogEffect(void);
 };
+
+#endif // __GTA_POINTLIGHTS_H__

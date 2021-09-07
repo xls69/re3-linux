@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_RADAR_H__
+#define __GTA_RADAR_H__
 #include "Sprite2d.h"
 #include "Draw.h"
 
@@ -199,3 +200,5 @@ public:
 	// no in CRadar in the game:	
 	static void CalculateCachedSinCos();
 };
+
+#endif // __GTA_RADAR_H__

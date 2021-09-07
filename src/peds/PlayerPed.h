@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_PLAYERPED_H__
+#define __GTA_PLAYERPED_H__
 
 #include "Ped.h"
 
@@ -96,3 +97,5 @@ public:
 #ifndef PED_SKIN
 VALIDATE_SIZE(CPlayerPed, 0x5F0);
 #endif
+
+#endif // __GTA_PLAYERPED_H__

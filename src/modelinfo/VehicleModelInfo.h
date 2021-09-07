@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_VEHICLEMODELINFO_H__
+#define __GTA_VEHICLEMODELINFO_H__
 
 #include "ClumpModelInfo.h"
 
@@ -163,3 +164,5 @@ public:
 };
 
 VALIDATE_SIZE(CVehicleModelInfo, 0x1F8);
+
+#endif // __GTA_VEHICLEMODELINFO_H__

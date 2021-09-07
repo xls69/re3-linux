@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_DARKEL_H__
+#define __GTA_DARKEL_H__
 
 #include "ModelIndices.h"
 #include "WeaponType.h"
@@ -51,3 +52,5 @@ public:
 	static void Update();
 
 };
+
+#endif // __GTA_DARKEL_H__

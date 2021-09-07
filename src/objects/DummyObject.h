@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_DUMMYOBJECT_H__
+#define __GTA_DUMMYOBJECT_H__
 
 #include "Dummy.h"
 
@@ -12,3 +13,5 @@ public:
 };
 
 VALIDATE_SIZE(CDummyObject, 0x68);
+
+#endif // __GTA_DUMMYOBJECT_H__

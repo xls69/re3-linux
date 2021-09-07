@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_TEXT_H__
+#define __GTA_TEXT_H__
 
 char *UnicodeToAscii(wchar *src);
 char *UnicodeToAsciiForSaveLoad(wchar *src);
@@ -64,3 +65,5 @@ public:
 };
 
 extern CText TheText;
+
+#endif // __GTA_TEXT_H__

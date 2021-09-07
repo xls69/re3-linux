@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_XTRACOMPSMODELINFO_H__
+#define __GTA_XTRACOMPSMODELINFO_H__
 
 #include "ClumpModelInfo.h"
 
@@ -11,3 +12,5 @@ public:
 	RwObject *CreateInstance(void) { return nil; }
 	void SetClump(RpClump*) {};
 };
+
+#endif // __GTA_XTRACOMPSMODELINFO_H__

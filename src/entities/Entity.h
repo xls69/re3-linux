@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_ENTITY_H__
+#define __GTA_ENTITY_H__
 
 #include "ModelInfo.h"
 #include "Placeable.h"
@@ -173,3 +174,5 @@ public:
 };
 
 VALIDATE_SIZE(CEntity, 0x64);
+
+#endif // __GTA_ENTITY_H__

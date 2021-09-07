@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_PATHFIND_H__
+#define __GTA_PATHFIND_H__
 
 #include "Treadable.h"
 
@@ -230,3 +231,5 @@ extern CPathFind ThePaths;
 extern bool gbShowPedPaths;
 extern bool gbShowCarPaths;
 extern bool gbShowCarPathsLinks;
+
+#endif // __GTA_PATHFIND_H__

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_CARAI_H__
+#define __GTA_CARAI_H__
 
 #include "AutoPilot.h"
 
@@ -24,3 +25,5 @@ public:
 	static void MellowOutChaseSpeed(CVehicle*);
 	static void MakeWayForCarWithSiren(CVehicle *veh);
 };
+
+#endif // __GTA_CARAI_H__

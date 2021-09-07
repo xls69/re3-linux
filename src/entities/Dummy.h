@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_DUMMY_H__
+#define __GTA_DUMMY_H__
 
 #include "Lists.h"
 #include "Entity.h"
@@ -18,3 +19,5 @@ public:
 
 VALIDATE_SIZE(CDummy, 0x68);
 
+
+#endif // __GTA_DUMMY_H__

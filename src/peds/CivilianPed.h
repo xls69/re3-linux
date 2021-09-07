@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_CIVILIANPED_H__
+#define __GTA_CIVILIANPED_H__
 
 #include "Ped.h"
 
@@ -14,3 +15,5 @@ public:
 #ifndef PED_SKIN
 VALIDATE_SIZE(CCivilianPed, 0x53C);
 #endif
+
+#endif // __GTA_CIVILIANPED_H__

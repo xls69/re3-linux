@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_DMAUDIO_H__
+#define __GTA_DMAUDIO_H__
 
 #include "audio_enums.h"
 #include "soundlist.h"
@@ -89,3 +90,5 @@ public:
 	void SetRadioChannel(uint8 radio, int32 pos);
 };
 extern cDMAudio DMAudio;
+
+#endif // __GTA_DMAUDIO_H__

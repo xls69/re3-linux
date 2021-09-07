@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_AUDIO_ENUMS_H__
+#define __GTA_AUDIO_ENUMS_H__
 
 enum eRadioStation
 {
@@ -278,3 +279,5 @@ enum
 	NUM_CHANNELS
 };
 #endif
+
+#endif // __GTA_AUDIO_ENUMS_H__

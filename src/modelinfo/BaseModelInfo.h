@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_BASEMODELINFO_H__
+#define __GTA_BASEMODELINFO_H__
 
 struct CColModel;
 
@@ -78,3 +79,5 @@ public:
 };
 
 VALIDATE_SIZE(CBaseModelInfo, 0x30);
+
+#endif // __GTA_BASEMODELINFO_H__

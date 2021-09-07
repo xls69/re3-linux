@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_SAMPMAN_H__
+#define __GTA_SAMPMAN_H__
 #include "AudioSamples.h"
 #include "audio_enums.h"
 
@@ -671,3 +672,5 @@ static char StreamedNameTable[][25] =
 	"AUDIO\\cat1.WAV"
 };
 #endif
+
+#endif // __GTA_SAMPMAN_H__

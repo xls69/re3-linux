@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_EVENTLIST_H__
+#define __GTA_EVENTLIST_H__
 
 class CEntity;
 class CPed;
@@ -63,3 +64,5 @@ public:
 };
 
 extern CEvent gaEvent[NUMEVENTS];
+
+#endif // __GTA_EVENTLIST_H__

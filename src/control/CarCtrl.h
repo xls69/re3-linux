@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_CARCTRL_H__
+#define __GTA_CARCTRL_H__
 #include "PathFind.h"
 #include "Boat.h"
 #include "Vehicle.h"
@@ -141,3 +142,5 @@ public:
 };
 
 extern CVehicle* apCarsToKeep[MAX_CARS_TO_KEEP];
+
+#endif // __GTA_CARCTRL_H__

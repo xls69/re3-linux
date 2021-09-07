@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_COLMODEL_H__
+#define __GTA_COLMODEL_H__
 
 #include "templates.h"
 #include "ColBox.h"
@@ -35,3 +36,5 @@ struct CColModel
 
 	CColModel& operator=(const CColModel& other);
 };
+
+#endif // __GTA_COLMODEL_H__

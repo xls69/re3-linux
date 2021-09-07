@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_PHONES_H__
+#define __GTA_PHONES_H__
 
 #include "Physical.h"
 
@@ -75,3 +76,5 @@ void PhonePickUpCB(CAnimBlendAssociation *assoc, void *arg);
 extern CPed *crimeReporters[NUMPHONES];
 bool isPhoneAvailable(int);
 #endif
+
+#endif // __GTA_PHONES_H__

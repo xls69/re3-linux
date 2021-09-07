@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_TREADABLE_H__
+#define __GTA_TREADABLE_H__
 
 #include "Building.h"
 
@@ -15,3 +16,5 @@ public:
 
 VALIDATE_SIZE(CTreadable, 0x94);
 
+
+#endif // __GTA_TREADABLE_H__

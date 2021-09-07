@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __GTA_RPANIMBLEND_H__
+#define __GTA_RPANIMBLEND_H__
 
 class CAnimBlendNode;
 class CAnimBlendAssociation;
@@ -40,3 +41,5 @@ void RpAnimBlendClumpUpdateAnimations(RpClump* clump, float timeDelta);
 extern CAnimBlendClumpData *gpAnimBlendClump;
 void FrameUpdateCallBackNonSkinned(AnimBlendFrameData *frame, void *arg);
 void FrameUpdateCallBackSkinned(AnimBlendFrameData *frame, void *arg);
+
+#endif // __GTA_RPANIMBLEND_H__
