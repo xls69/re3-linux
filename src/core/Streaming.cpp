@@ -1204,10 +1204,11 @@ CStreaming::RemoveAllUnusedModels(void)
 bool
 CStreaming::RemoveReferencedTxds(size_t mem)
 {
-	CStreamingInfo *si;
+	CStreamingInfo *si, *prev;
 	int streamId;
 
-	for(si = ms_endLoadedList.m_prev; si != &ms_startLoadedList; si = si->m_prev){
+	for(si = ms_endLoadedList.m_prev; si != &ms_startLoadedList; si = prev){
+		prev = si->m_prev;
 		streamId = si - ms_aInfoForModel;
 		if(streamId >= STREAM_OFFSET_TXD &&
 		   CTxdStore::GetNumRefs(streamId-STREAM_OFFSET_TXD) == 0){
