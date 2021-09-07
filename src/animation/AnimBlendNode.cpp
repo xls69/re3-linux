@@ -38,7 +38,7 @@ CAnimBlendNode::Update(CVector &trans, CQuaternion &rot, float weight)
 		}
 		if(sequence->type & CAnimBlendSequence::KF_ROT){
 			rot.Slerp(kfB->rotation, kfA->rotation, theta, invSin, t);
-			rot *= blend;
+			rot.Scale(blend);
 		}
 	}
 
