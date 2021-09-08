@@ -9,6 +9,13 @@
 #include "PlayerInfo.h"
 #include "Vehicle.h"
 
+#if GTA_VERSION <= GTA3_PS2_160
+void
+CRemote::Init(void)
+{
+}
+#endif
+
 void
 CRemote::GivePlayerRemoteControlledCar(float x, float y, float z, float rot, uint16 model)
 {

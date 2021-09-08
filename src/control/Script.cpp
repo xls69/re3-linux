@@ -2596,12 +2596,14 @@ int8 CRunningScript::ProcessCommands200To299(int32 command)
 	{
 		CollectParameters(&m_nIp, 2);
 		bool value = GetPadState(ScriptParams[0], ScriptParams[1]) != 0;
+#ifdef GTA_PC_CONTROLS
 		if (CGame::playingIntro && ScriptParams[0] == 0 && ScriptParams[1] == 12) {
 			if (CPad::GetPad(0)->GetLeftMouseJustDown() ||
 				CPad::GetPad(0)->GetEnterJustDown() ||
 				CPad::GetPad(0)->GetCharJustDown(' '))
 				value = true;
 		}
+#endif
 		UpdateCompareFlag(value);
 		return 0;
 	}
