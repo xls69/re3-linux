@@ -104,6 +104,7 @@ cDMAudio::SetMusicFadeVol(uint8 volume)
 	AudioManager.SetMusicFadeVol(vol);
 }
 
+#ifdef GTA_PC
 uint8
 cDMAudio::GetNum3DProvidersAvailable(void)
 {
@@ -177,6 +178,7 @@ cDMAudio::IsAudioInitialised(void)
 {
 	return AudioManager.IsAudioInitialised();
 }
+#endif
 
 void
 cDMAudio::ResetPoliceRadio()
