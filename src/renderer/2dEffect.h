@@ -56,16 +56,16 @@ public:
 	};
 	struct Particle {
 		int particleType;
-		CVector dir;
+		RwV3d dir;
 		float scale;
 	};
 	struct Attractor {
-		CVector dir;
+		RwV3d dir;
 		int8 type;
 		uint8 probability;
 	};
 
-	CVector pos;
+	RwV3d pos;
 	CRGBA col;
 	uint8 type;
 	union {

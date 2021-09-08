@@ -79,10 +79,14 @@ CEntity *CRenderer::ms_aVisibleBuildingPtrs[NUMVISIBLEENTITIES];
 CLinkList<EntityInfo> gSortedBuildings;
 #endif
 
-CVector CRenderer::ms_vecCameraPosition;
+CVUVECTOR CRenderer::ms_vecCameraPosition;
 CVehicle *CRenderer::m_pFirstPersonVehicle;
 bool CRenderer::m_loadingPriority;
+#ifdef GTA_PS2
+float CRenderer::ms_lodDistScale = 1.0f;
+#else
 float CRenderer::ms_lodDistScale = 1.2f;
+#endif
 
 // unused
 BlockedRange CRenderer::aBlockedRanges[16];

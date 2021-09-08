@@ -333,7 +333,11 @@ CSprite2d::SetVertices(int n, float *positions, float *uvs, const CRGBA &col)
 	for(i = 0; i < n; i++){
 		RwIm2DVertexSetScreenX(&maVertices[i], positions[i*2 + 0]);
 		RwIm2DVertexSetScreenY(&maVertices[i], positions[i*2 + 1]);
+#ifdef GTA_PS2
+		RwIm2DVertexSetScreenZ(&maVertices[i], screenz - 1.0f);
+#else
 		RwIm2DVertexSetScreenZ(&maVertices[i], screenz + 0.0001f);
+#endif
 		RwIm2DVertexSetCameraZ(&maVertices[i], z);
 		RwIm2DVertexSetRecipCameraZ(&maVertices[i], recipz);
 		RwIm2DVertexSetIntRGBA(&maVertices[i], col.r, col.g, col.b, col.a);

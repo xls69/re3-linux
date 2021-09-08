@@ -89,7 +89,7 @@ DefinedState(void)
 	rw::SetRenderState(rw::ALPHATESTFUNC, rw::ALPHAGREATEREQUAL);
 
 	rw::SetRenderState(rw::GSALPHATEST, gPS2alphaTest);
-#else
+#elif defined(GTA_PC)
 	// D3D stuff
 	RwD3D8SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATER);
 #endif
@@ -101,7 +101,7 @@ SetAlphaRef(int ref)
 {
 #ifdef LIBRW
 	rw::SetRenderState(rw::ALPHATESTREF, ref+1);
-#else
+#elif defined(GTA_PC)
 	RwD3D8SetRenderState(D3DRS_ALPHAREF, ref);
 #endif
 }
@@ -531,8 +531,10 @@ CameraSize(RwCamera * camera, RwRect * rect,
 
 		RwCameraSetViewWindow(camera, &vw);
 
+#ifndef GTA_PS2
 		RsGlobal.width  = rect->w;
 		RsGlobal.height = rect->h;
+#endif
 	}
 
 	return;

@@ -2,8 +2,10 @@
 #define WITHD3D
 #endif
 #include "common.h"
+#ifdef GTA_PC
 #ifndef LIBRW
 #include <d3d8caps.h>
+#endif
 #endif
 
 #include "main.h"
@@ -22,8 +24,10 @@ bool CMBlur::BlurOn;
 static RwIm2DVertex Vertex[4];
 static RwImVertexIndex Index[6] = { 0, 1, 2, 0, 2, 3 };
 
+#ifdef GTA_PC
 #ifndef LIBRW
 extern "C" D3DCAPS8 _RwD3D8DeviceCaps;
+#endif
 #endif
 RwBool
 CMBlur::MotionBlurOpen(RwCamera *cam)
@@ -154,6 +158,59 @@ CMBlur::MotionBlurClose(void)
 void
 CMBlur::CreateImmediateModeData(RwCamera *cam, RwRect *rect)
 {
+#ifdef GTA_PS2
+	float w = rect->w;
+	float h = rect->h;
+	float u, v, U, V;
+	if(RwRasterGetWidth(RwCameraGetRaster(cam)) >= 512)
+		U = (w+0.5f)/1024.0f;
+	else
+		U = (w+0.5f)/512.0f;
+	V = (h+0.5f)/512.0f;
+	if(RwRasterGetWidth(RwCameraGetRaster(cam)) >= 512)
+		u = (  0.5f)/1024.0f;
+	else
+		u = (  0.5f)/512.0f;
+	v = (  0.5f)/512.0f;
+
+	RwIm2DVertexSetScreenX(&Vertex[0], 0.0f);
+	RwIm2DVertexSetScreenY(&Vertex[0], 0.0f);
+	RwIm2DVertexSetScreenZ(&Vertex[0], RwIm2DGetNearScreenZ());
+	RwIm2DVertexSetCameraZ(&Vertex[0], RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetRecipCameraZ(&Vertex[0], 1.0f/RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetU(&Vertex[0], u, 1.0f/RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetV(&Vertex[0], v, 1.0f/RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetIntRGBA(&Vertex[0], 255, 255, 255, 255);
+
+	RwIm2DVertexSetScreenX(&Vertex[1], 0.0f);
+	RwIm2DVertexSetScreenY(&Vertex[1], h);
+	RwIm2DVertexSetScreenZ(&Vertex[1], RwIm2DGetNearScreenZ());
+	RwIm2DVertexSetCameraZ(&Vertex[1], RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetRecipCameraZ(&Vertex[1], 1.0f/RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetU(&Vertex[1], u, 1.0f/RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetV(&Vertex[1], V, 1.0f/RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetIntRGBA(&Vertex[1], 255, 255, 255, 255);
+
+	RwIm2DVertexSetScreenX(&Vertex[2], w);
+	RwIm2DVertexSetScreenY(&Vertex[2], h);
+	RwIm2DVertexSetScreenZ(&Vertex[2], RwIm2DGetNearScreenZ());
+	RwIm2DVertexSetCameraZ(&Vertex[2], RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetRecipCameraZ(&Vertex[2], 1.0f/RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetU(&Vertex[2], U, 1.0f/RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetV(&Vertex[2], V, 1.0f/RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetIntRGBA(&Vertex[2], 255, 255, 255, 255);
+
+	RwIm2DVertexSetScreenX(&Vertex[3], w);
+	RwIm2DVertexSetScreenY(&Vertex[3], 0.0f);
+	RwIm2DVertexSetScreenZ(&Vertex[3], RwIm2DGetNearScreenZ());
+	RwIm2DVertexSetCameraZ(&Vertex[3], RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetRecipCameraZ(&Vertex[3], 1.0f/RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetU(&Vertex[3], U, 1.0f/RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetV(&Vertex[3], v, 1.0f/RwCameraGetNearClipPlane(cam));
+	RwIm2DVertexSetIntRGBA(&Vertex[3], 255, 255, 255, 255);
+
+	// TODO? unused TVVertex
+#else
 	float zero, xmax, ymax;
 
 	if(RwRasterGetDepth(RwCameraGetRaster(cam)) == 16){
@@ -201,6 +258,7 @@ CMBlur::CreateImmediateModeData(RwCamera *cam, RwRect *rect)
 	RwIm2DVertexSetU(&Vertex[3], 1.0f, 1.0f/RwCameraGetNearClipPlane(cam));
 	RwIm2DVertexSetV(&Vertex[3], 0.0f, 1.0f/RwCameraGetNearClipPlane(cam));
 	RwIm2DVertexSetIntRGBA(&Vertex[3], 255, 255, 255, 255);
+#endif
 }
 
 void
