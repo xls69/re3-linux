@@ -395,23 +395,7 @@ cAudioManager::ResetAudioLogicTimers(uint32 timer)
 void
 cAudioManager::ProcessReverb()
 {
-#ifdef EXTERNAL_3D_SOUND
-	if (SampleManager.UpdateReverb() && m_bDynamicAcousticModelingStatus) {
-#ifndef GTA_PS2
-		for (uint32 i = 0; i <
-#ifdef FIX_BUGS
-		                   NUM_CHANNELS_GENERIC
-#else
-		                   NUM_CHANNELS_GENERIC+1
-#endif
-		     ;
-		     i++) {
-			if (m_asActiveSamples[i].m_bReverb)
-				SampleManager.SetChannelReverbFlag(i, TRUE);
-		}
-#endif
-	}
-#else
+#ifdef GTA_PS2
 	static uint8 OldVolL = 0;
 	static uint8 OldVolR = 0;
 
@@ -427,6 +411,16 @@ cAudioManager::ProcessReverb()
 		SampleManager.UpdateReverb(VolL, VolR, 100, 15, 80);
 		OldVolL = VolL;
 		OldVolR = VolR;
+	}
+#elif defined(EXTERNAL_3D_SOUND)
+	if (SampleManager.UpdateReverb() && m_bDynamicAcousticModelingStatus) {
+#ifdef FIX_BUGS
+		for (uint32 i = 0; i < NUM_CHANNELS_GENERIC; i++)
+#else
+		for (uint32 i = 0; i < NUM_CHANNELS_GENERIC + 1; i++)
+#endif
+			if (m_asActiveSamples[i].m_bReverb)
+				SampleManager.SetChannelReverbFlag(i, TRUE);
 	}
 #endif
 }

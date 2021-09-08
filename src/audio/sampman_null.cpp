@@ -206,11 +206,16 @@ cSampleManager::GetSampleLength(uint32 nSample)
 	ASSERT( nSample < TOTAL_AUDIO_SAMPLES );
 	return 0;
 }
-
+#ifdef GTA_PS2
+void cSampleManager::UpdateReverb(uint8, uint8, uint8, uint8, uint8)
+{
+}
+#else
 bool8 cSampleManager::UpdateReverb(void)
 {
 	return FALSE;
 }
+#endif
 
 void
 cSampleManager::SetChannelReverbFlag(uint32 nChannel, bool8 nReverbFlag)

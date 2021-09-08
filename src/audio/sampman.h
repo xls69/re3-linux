@@ -194,7 +194,11 @@ public:
 	int32  GetSampleLoopEndOffset  (uint32 nSample);
 	uint32 GetSampleLength         (uint32 nSample);
 	
+#ifdef GTA_PS2
+	void UpdateReverb(uint8, uint8, uint8, uint8, uint8);
+#else
 	bool8 UpdateReverb(void);
+#endif
 	
 	void  SetChannelReverbFlag    (uint32 nChannel, bool8 nReverbFlag);
 	bool8 InitialiseChannel       (uint32 nChannel, uint32 nSfx, uint8 nBank);
