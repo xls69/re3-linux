@@ -7,11 +7,15 @@
 #define MAX_FREQ DIGITALRATE
 
 struct tSample {
+#ifndef GTA_PS2
 	uint32 nOffset;
+#endif
 	uint32 nSize;
 	uint32 nFrequency;
+#ifndef GTA_PS2
 	uint32 nLoopStart;
 	int32 nLoopEnd;
+#endif
 };
 
 #ifdef GTA_PS2
@@ -132,11 +136,13 @@ class cSampleManager
 	uint8   m_nEffectsFadeVolume;
 	uint8   m_nMusicFadeVolume;
 	bool8   m_nMonoMode;
+#ifdef GTA_PC
 	char	unk;
 	char    m_szCDRomRootPath[80];
 	bool8   m_bInitialised;
 	uint8   m_nNumberOfProviders;
 	char   *m_aAudioProviders[MAXPROVIDERS];
+#endif
 	tSample m_aSamples[TOTAL_AUDIO_SAMPLES];
 
 public:
