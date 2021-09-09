@@ -57,7 +57,7 @@ class CRenderer
 	static CEntity *ms_aVisibleBuildingPtrs[NUMVISIBLEENTITIES];
 #endif
 
-	static CVector ms_vecCameraPosition;
+	static CVUVECTOR ms_vecCameraPosition;
 	static CVehicle *m_pFirstPersonVehicle;
 
 	// unused

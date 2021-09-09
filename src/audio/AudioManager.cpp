@@ -519,8 +519,13 @@ cAudioManager::ServiceSoundEffects()
 #endif
 	m_bReduceReleasingPriority = (m_FrameCounter++ % 5) == 0;
 	if (m_bIsPaused && !m_bWasPaused) {
-		for (int32 i = 0; i < NUM_CHANNELS; i++)
+#if GTA_VERSION < GTA3_PC_10
+		for (uint32 i = 0; i < NUM_CHANNELS; i++)
+			SampleManager.SetChannelFrequency(i, 0);
+#else
+		for (uint32 i = 0; i < NUM_CHANNELS; i++)
 			SampleManager.StopChannel(i);
+#endif
 
 		ClearRequestedQueue();
 		if (m_nActiveQueue) {
@@ -548,7 +553,7 @@ cAudioManager::ServiceSoundEffects()
 	AdjustSamplesVolume();
 #endif
 	ProcessActiveQueues();
-#ifdef AUDIO_OAL
+#ifndef AUDIO_MSS
 	SampleManager.Service();
 #endif
 	for (int32 i = 0; i < m_sAudioScriptObjectManager.m_nScriptObjectEntityTotal; i++) {
@@ -1007,7 +1012,7 @@ cAudioManager::ProcessActiveQueues()
 							SampleManager.SetChannelEmittingVolume(j, emittingVol);
 #else
 							SampleManager.SetChannelPan(j, sample.m_nPan);
-							SampleManager.SetChannelVolume(j, sample.m_nVolume);
+							SampleManager.SetChannelVolume(j, emittingVol);
 #endif
 						} else {
 							position2 = sample.m_fDistance;
@@ -1030,20 +1035,20 @@ cAudioManager::ProcessActiveQueues()
 								SampleManager.SetChannelEmittingVolume(j, m_bDoubleVolume ? 2 * Min(63, vol) : vol);
 								m_asActiveSamples[j].m_nEmittingVolume = vol;
 							}
+							TranslateEntity(&sample.m_vecPos, &position);
+							SampleManager.SetChannel3DPosition(j, position.x, position.y, position.z);
+							SampleManager.SetChannel3DDistances(j, sample.m_MaxDistance, 0.25f * sample.m_MaxDistance);
 #else
 							if (sample.m_nVolume != m_asActiveSamples[j].m_nVolume) {
 								vol = Clamp2((int8)sample.m_nVolume, (int8)m_asActiveSamples[j].m_nVolume, 10);
 								m_asActiveSamples[j].m_nVolume = vol;
 							}
 							SampleManager.SetChannelVolume(j, m_bDoubleVolume ? 2 * Min(63, m_asActiveSamples[j].m_nVolume) : m_asActiveSamples[j].m_nVolume);
-#endif
 							TranslateEntity(&sample.m_vecPos, &position);
-#ifdef EXTERNAL_3D_SOUND
-							SampleManager.SetChannel3DPosition(j, position.x, position.y, position.z);
-							SampleManager.SetChannel3DDistances(j, sample.m_MaxDistance, 0.25f * sample.m_MaxDistance);
-#else
-							sample.m_nPan = ComputePan(sample.m_fDistance, &position);
-							SampleManager.SetChannelPan(j, sample.m_nPan);
+							sample.m_nPan = ComputePan(sample.m_MaxDistance, &position);
+							if (sample.m_nPan != m_asActiveSamples[j].m_nPan)
+								m_asActiveSamples[j].m_nPan = Clamp2((int8)sample.m_nPan, (int8)m_asActiveSamples[j].m_nPan, 10);
+							SampleManager.SetChannelPan(j, m_asActiveSamples[j].m_nPan);
 #endif
 						}
 						SampleManager.SetChannelReverbFlag(j, sample.m_bReverb);
@@ -1085,7 +1090,7 @@ cAudioManager::ProcessActiveQueues()
 						if (!m_asActiveSamples[j].m_bIs2D) {
 							TranslateEntity(&m_asActiveSamples[j].m_vecPos, &position);
 #ifndef EXTERNAL_3D_SOUND
-							m_asActiveSamples[j].m_nPan = ComputePan(m_asActiveSamples[j].m_fDistance, &position);
+							m_asActiveSamples[j].m_nPan = ComputePan(m_asActiveSamples[j].m_MaxDistance, &position);
 #endif
 						}
 						emittingVol = m_bDoubleVolume ? 2 * Min(63, m_asActiveSamples[j].WORKING_VOLUME_FIELD) : m_asActiveSamples[j].WORKING_VOLUME_FIELD;

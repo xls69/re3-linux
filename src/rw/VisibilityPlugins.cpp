@@ -41,7 +41,7 @@ float CVisibilityPlugins::ms_pedFadeDist;
 bool
 rpDefaultGeometryInstance(RpGeometry *geo, void *atomic, int del)
 {
-#if THIS_IS_COMPATIBLE_WITH_GTA3_RW31
+#ifdef THIS_IS_COMPATIBLE_WITH_GTA3_RW31
 	if(RpGeometryGetNumMorphTargets(geo) != 1)
 		return false;
 
@@ -55,6 +55,7 @@ rpDefaultGeometryInstance(RpGeometry *geo, void *atomic, int del)
 
 	// New mesh without indices
 	RpMeshHeader *newheader = _rpMeshHeaderCreate(sizeof(RpMesh)*geo->mesh->numMeshes + sizeof(RpMeshHeader));
+	newheader->flags = geo->mesh->flags;
 	newheader->numMeshes = geo->mesh->numMeshes;
 	newheader->serialNum = 1;
 	newheader->totalIndicesInMesh = 0;
@@ -68,9 +69,10 @@ rpDefaultGeometryInstance(RpGeometry *geo, void *atomic, int del)
 	}
 
 	geo->refCount++;
+	// NB: this deletes the old mesh
 	RpGeometryLock(geo, rpGEOMETRYLOCKPOLYGONS | rpGEOMETRYLOCKVERTICES |
 		rpGEOMETRYLOCKNORMALS | rpGEOMETRYLOCKPRELIGHT |
-		rpGEOMETRYLOCKTEXCOORDS1 | rpGEOMETRYLOCKTEXCOORDS2);
+		rpGEOMETRYLOCKTEXCOORDS | rpGEOMETRYLOCKTEXCOORDS2);
 
 	// vertices and normals
 	RpMorphTarget *mt = RpGeometryGetMorphTarget(geo, 0);
@@ -82,33 +84,43 @@ rpDefaultGeometryInstance(RpGeometry *geo, void *atomic, int del)
 	geo->numVertices = 0;
 
 	// triangles
-	for(int i = 0; i < RpGeometryGetNumTriangles(geo); i++){
-		if(RpGeometryGetTriangles(geo)->matIndex == -1)
+	for(int i = 0; i < geo->numTriangles; i++){
+		const RwInt32       matIndex = geo->triangles[i].matIndex;
+		RpMaterial         *mat;
+
+		if(matIndex == -1)
 			continue;
-		RpMaterialDestroy(_rpMaterialListGetMaterial(&geo->matList, RpGeometryGetTriangles(geo)->matIndex));
+
+		assert(matIndex < geo->matList.numMaterials);
+
+		mat = _rpMaterialListGetMaterial(&geo->matList, matIndex);
+		assert(mat);
+		assert(0 < (mat->refCount));
+		RpMaterialDestroy(mat);
 	}
-	if(RpGeometryGetTriangles(geo)){
-		RwFree(RpGeometryGetTriangles(geo));
+	if(geo->triangles){
+		RwFree(geo->triangles);
 		geo->triangles = nil;
 		geo->numTriangles = 0;
 	}
 
 	// tex coords
-	if(RpGeometryGetVertexTexCoords(geo, 1)){
-		RwFree(RpGeometryGetVertexTexCoords(geo, 1));
+	if(geo->texCoords[1]){
+		RwFree(geo->texCoords[1]);
 		geo->texCoords[1] = nil;
 	}
-	if(RpGeometryGetVertexTexCoords(geo, 0)){
-		RwFree(RpGeometryGetVertexTexCoords(geo, 0));
+	if(geo->texCoords[0]){
+		RwFree(geo->texCoords[0]);
 		geo->texCoords[0] = nil;
 	}
 
 	// vertex colors
-	if(RpGeometryGetPreLightColors(geo)){
-		RwFree(RpGeometryGetPreLightColors(geo));
+	if(geo->preLitLum){
+		RwFree(geo->preLitLum);
 		geo->preLitLum = nil;
 	}
 
+	geo->mesh = newheader;	// prevent unlock from building new mesh
 	RpGeometryUnlock(geo);
 
 	geo->instanceFlags = rpGEOMETRYPERSISTENT;
@@ -229,7 +241,11 @@ CVisibilityPlugins::InsertAtomicIntoSortedList(RpAtomic *a, float dist)
 
 // can't increase this yet unfortunately...
 // probably have to fix fading for this so material alpha isn't overwritten
+#if GTA_VERSION <= GTA3_PS2_160
+#define VEHICLE_LODDIST_MULTIPLIER (1.0f)
+#else
 #define VEHICLE_LODDIST_MULTIPLIER (TheCamera.GenerationDistMultiplier)
+#endif
 
 void
 CVisibilityPlugins::SetRenderWareCamera(RwCamera *camera)
@@ -668,6 +684,7 @@ CVisibilityPlugins::RenderTrainHiDetailAlphaCB(RpAtomic *atomic)
 	return atomic;
 }
 
+#ifdef GTA_PC
 RpAtomic*
 CVisibilityPlugins::RenderPlayerCB(RpAtomic *atomic)
 {
@@ -676,6 +693,7 @@ CVisibilityPlugins::RenderPlayerCB(RpAtomic *atomic)
 	RENDERCALLBACK(atomic);
 	return atomic;
 }
+#endif
 
 RpAtomic*
 CVisibilityPlugins::RenderPedLowDetailCB(RpAtomic *atomic)

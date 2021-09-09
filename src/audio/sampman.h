@@ -7,11 +7,15 @@
 #define MAX_FREQ DIGITALRATE
 
 struct tSample {
+#ifndef GTA_PS2
 	uint32 nOffset;
+#endif
 	uint32 nSize;
 	uint32 nFrequency;
+#ifndef GTA_PS2
 	uint32 nLoopStart;
 	int32 nLoopEnd;
+#endif
 };
 
 #ifdef GTA_PS2
@@ -132,11 +136,13 @@ class cSampleManager
 	uint8   m_nEffectsFadeVolume;
 	uint8   m_nMusicFadeVolume;
 	bool8   m_nMonoMode;
+#ifdef GTA_PC
 	char	unk;
 	char    m_szCDRomRootPath[80];
 	bool8   m_bInitialised;
 	uint8   m_nNumberOfProviders;
 	char   *m_aAudioProviders[MAXPROVIDERS];
+#endif
 	tSample m_aSamples[TOTAL_AUDIO_SAMPLES];
 
 public:
@@ -194,7 +200,11 @@ public:
 	int32  GetSampleLoopEndOffset  (uint32 nSample);
 	uint32 GetSampleLength         (uint32 nSample);
 	
+#ifdef GTA_PS2
+	void  UpdateReverb(uint8, uint8, uint8, uint8, uint8);
+#else
 	bool8 UpdateReverb(void);
+#endif
 	
 	void  SetChannelReverbFlag    (uint32 nChannel, bool8 nReverbFlag);
 	bool8 InitialiseChannel       (uint32 nChannel, uint32 nSfx, uint8 nBank);
@@ -221,7 +231,7 @@ public:
 	void  SetStreamedVolumeAndPan(uint8 nVolume, uint8 nPan, bool8 nEffectFlag, uint8 nStream = 0);
 	int32 GetStreamedFileLength                                                (uint8 nStream = 0);
 	bool8 IsStreamPlaying                                                      (uint8 nStream = 0);
-#ifdef AUDIO_OAL
+#ifndef AUDIO_MSS
 	void  Service(void);
 #endif
 	bool8 InitialiseSampleBanks(void);
