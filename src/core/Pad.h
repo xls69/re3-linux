@@ -199,10 +199,12 @@ public:
 	void StartShake(int16 nDur, uint8 nFreq);
 	void StartShake_Distance(int16 nDur, uint8 nFreq, float fX, float fY, float fz);
 	void StartShake_Train(float fX, float fY);
-#ifdef GTA_PS2_STUFF
+#if !defined(NO_CHEATS) && defined(GTA_PS2_STUFF)
 	void AddToCheatString(char c);
 #endif
+#ifndef NO_CHEATS
 	void AddToPCCheatString(char c);
+#endif
 
 	static void UpdatePads(void);
 	void ProcessPCSpecificStuff(void);

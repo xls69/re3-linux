@@ -311,7 +311,9 @@ HandleKeyDown(RsKeyStatus *keyStatus)
 					if ( c < 255 )
 					{
 						CPad::TempKeyState.VK_KEYS[c] = 255;
+#ifndef NO_CHEATS
 						pad0->AddToPCCheatString(c);
+#endif
 					}
 					break;
 				}

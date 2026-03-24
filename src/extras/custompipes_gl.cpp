@@ -79,11 +79,13 @@ vehicleRenderCB(rw::Atomic *atomic, rw::gl3::InstanceDataHeader *header)
 	using namespace rw;
 	using namespace rw::gl3;
 
+#ifdef PS2_MATFX
 	// TODO: make this less of a kludge
 	if(VehiclePipeSwitch == VEHICLEPIPE_MATFX){
 		matFXGlobals.pipelines[rw::platform]->render(atomic);
 		return;
 	}
+#endif
 
 	Material *m;
 

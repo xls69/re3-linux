@@ -881,7 +881,9 @@ void CGame::Process(void)
 		CFont::InitPerFrame();
 		CRecordDataForGame::SaveOrRetrieveDataForThisFrame();
 		CRecordDataForChase::SaveOrRetrieveDataForThisFrame();
+#ifndef NO_CHEATS
 		CPad::DoCheats();
+#endif
 		CClock::Update();
 		CWeather::Update();
 

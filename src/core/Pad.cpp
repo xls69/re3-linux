@@ -71,7 +71,9 @@ CKeyboardState CPad::OldKeyState;
 CKeyboardState CPad::NewKeyState;
 CKeyboardState CPad::TempKeyState;
 
+#ifndef NO_CHEATS
 char CPad::KeyBoardCheatString[30];
+#endif
 
 CMouseControllerState CPad::OldMouseControllerState;
 CMouseControllerState CPad::NewMouseControllerState;
@@ -88,6 +90,7 @@ extern bool gbFastTime;
 extern bool gGravityCheat;
 #endif
 
+#ifndef NO_CHEATS
 void SpecialCarCheats()
 {
 	if ( !CVehicle::bCheat9 )
@@ -591,6 +594,7 @@ void DoChicksWithGunsCheat(void) {
 	CStats::CheatedCount += 1000;
 	CPad::bHasPlayerCheated = true;
 }
+#endif
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -648,6 +652,7 @@ void WallClimbingCheat(void)
 }
 #endif
 
+#ifndef NO_CHEATS
 void FlyingFishCheat(void)
 {
 	CHud::SetHelpMessage(TheText.Get("CHEAT1"), true);
@@ -659,6 +664,7 @@ void DoShowChaseStatCheat(void) {
 	CHud::SetHelpMessage(TheText.Get("CHEAT1"), true);
 	CStats::ShowChaseStatOnScreen = 1;
 }
+#endif
 
 bool
 CControllerState::CheckForInput(void)
@@ -1101,7 +1107,7 @@ void CPad::StartShake_Train(float fX, float fY)
 	}
 }
 
-#ifdef GTA_PS2_STUFF
+#if !defined(NO_CHEATS) && defined(GTA_PS2_STUFF)
 void CPad::AddToCheatString(char c)
 {
 	for ( int32 i = ARRAY_SIZE(CheatString) - 2; i >= 0; i-- )
@@ -1246,6 +1252,7 @@ int Cheat_strncmp(char* sourceStr, char* origCheatStr)
 #undef ccmp
 }
 
+#ifndef NO_CHEATS
 // TODO(Miami): Mobile has changed some of the cheats to include debugging things
 void CPad::AddToPCCheatString(char c)
 {
@@ -1583,6 +1590,7 @@ void CPad::AddToPCCheatString(char c)
 
 #undef _CHEATCMP
 }
+#endif
 
 #ifdef XINPUT
 int CPad::XInputJoy1 = 0;
@@ -2004,6 +2012,7 @@ void CPad::Update(int16 pad)
 		--JustOutOfFrontend;
 }
 
+#ifndef NO_CHEATS
 void CPad::DoCheats(void)
 {
 #ifdef DETECT_PAD_INPUT_SWITCH
@@ -2052,6 +2061,7 @@ void CPad::DoCheats(int16 unk)
 		AddToCheatString('4');
 #endif
 }
+#endif
 
 void CPad::StopPadsShaking(void)
 {
