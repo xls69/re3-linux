@@ -22,10 +22,6 @@ newoption {
 	description = "Build and use librw from this solution"
 }
 
-newoption {
-	trigger     = "with-opus",
-	description = "Build with opus"
-}
 
 newoption {
 	trigger     = "with-lto",
@@ -166,7 +162,7 @@ workspace "reVC"
 		end
 
 	filter "platforms:*librw_gl3_glfw*"
-		defines { "RW_GL3" }
+		defines { "RW_GL3", "LIBRW_GLFW" }
 		if(not _OPTIONS["with-librw"]) then
 			libdirs { path.join(Librw, "lib/%{getsys(cfg.system)}-%{getarch(cfg.architecture)}-gl3/%{cfg.buildcfg}") }
 		end
@@ -309,12 +305,6 @@ project "reVC"
 		defines { "USE_OUR_VERSIONING" }
 	end
 
-	if _OPTIONS["with-opus"] then
-		includedirs { "vendor/ogg/include" }
-		includedirs { "vendor/opus/include" }
-		includedirs { "vendor/opusfile/include" }
-	end
-
 	filter "configurations:Vanilla"
 		defines { "VANILLA_DEFINES" }
 
@@ -322,15 +312,6 @@ project "reVC"
 		defines { "AUDIO_MSS" }
 		includedirs { "vendor/milessdk/include" }
 		libdirs { "vendor/milessdk/lib" }
-
-	if _OPTIONS["with-opus"] then
-		filter "platforms:win*"
-			libdirs { "vendor/ogg/win32/VS2015/Win32/%{cfg.buildcfg}" }
-			libdirs { "vendor/opus/win32/VS2015/Win32/%{cfg.buildcfg}" }
-			libdirs { "vendor/opusfile/win32/VS2015/Win32/Release-NoHTTP" }
-		filter {}
-		defines { "AUDIO_OPUS" }
-	end
 
 	filter "platforms:*oal"
 		defines { "AUDIO_OAL" }
@@ -411,13 +392,6 @@ project "reVC"
 	filter "platforms:macosx-amd64-*oal"
 		includedirs { "/usr/local/opt/openal-soft/include" }
 		libdirs { "/usr/local/opt/openal-soft/lib" }
-
-	if _OPTIONS["with-opus"] then
-		filter {}
-		links { "libogg" }
-		links { "opus" }
-		links { "opusfile" }
-	end
 
 	filter "platforms:*RW34*"
 		includedirs { "sdk/rwsdk/include/d3d8" }
