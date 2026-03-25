@@ -763,7 +763,7 @@ CMenuManager::CheckSliderMovement(int value)
 		TheCamera.m_fMouseAccelHorzntl += value * 1.0f/200.0f/15.0f;	// probably because diving it to 15 instead of 16(MENUSLIDER_LOGICAL_BARS) had more accurate steps
 		TheCamera.m_fMouseAccelHorzntl = Clamp(TheCamera.m_fMouseAccelHorzntl, 1.0f/3200.0f, 1.0f/200.0f);
 #ifdef FIX_BUGS
-		TheCamera.m_fMouseAccelVertical = TheCamera.m_fMouseAccelHorzntl + 0.0005f;
+		TheCamera.m_fMouseAccelVertical = TheCamera.m_fMouseAccelHorzntl;
 #endif
 		break;
 #ifdef CUSTOM_FRONTEND_OPTIONS
@@ -3172,7 +3172,7 @@ CMenuManager::LoadSettings()
 #endif
 
 #ifdef FIX_BUGS
-	TheCamera.m_fMouseAccelVertical = TheCamera.m_fMouseAccelHorzntl + 0.0005f;
+	TheCamera.m_fMouseAccelVertical = TheCamera.m_fMouseAccelHorzntl;
 #endif
 #ifdef PC_PLAYER_CONTROLS
 	CCamera::m_bUseMouse3rdPerson = m_ControlMethod == CONTROL_STANDARD;
@@ -4956,7 +4956,7 @@ CMenuManager::ProcessUserInput(uint8 goDown, uint8 goUp, uint8 optionSelected, u
 					MousePointerStateHelper.bInvertVertically = true;
 					TheCamera.m_bHeadBob = false;
 #ifdef FIX_BUGS
-					TheCamera.m_fMouseAccelVertical = 0.003f;
+					TheCamera.m_fMouseAccelVertical = 0.0025f;
 #endif
 					TheCamera.m_fMouseAccelHorzntl = 0.0025f;
 					CVehicle::m_bDisableMouseSteering = true;
