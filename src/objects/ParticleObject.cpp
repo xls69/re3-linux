@@ -8,7 +8,6 @@
 #include "Camera.h"
 #include "Game.h"
 #include "DMAudio.h"
-#include "screendroplets.h"
 
 #ifdef COMPATIBLE_SAVES
 #define PARTICLE_OBJECT_SIZEOF 0x88
@@ -256,9 +255,6 @@ CParticleObject::AddObject(uint16 type, CVector const &pos, CVector const &targe
 				pobj->m_nSkipFrames      = 3;
 #endif
 				pobj->m_nCreationChance  = 0;
-#ifdef SCREEN_DROPLETS
-				ScreenDroplets::RegisterSplash(pobj);
-#endif
 				break;
 			}
 			

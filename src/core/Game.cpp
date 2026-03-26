@@ -84,7 +84,6 @@
 #include "debugmenu.h"
 #include "postfx.h"
 #include "custompipes.h"
-#include "screendroplets.h"
 #include "crossplatform.h"
 #include "MemoryHeap.h"
 #ifdef USE_TEXTURE_POOL
@@ -278,9 +277,6 @@ CGame::InitialiseRenderWare(void)
 #ifdef EXTENDED_PIPELINES
 	CustomPipes::CustomPipeInit();	// need Scene.world for this
 #endif
-#ifdef SCREEN_DROPLETS
-	ScreenDroplets::InitDraw();
-#endif
 
 	return (true);
 }
@@ -288,9 +284,6 @@ CGame::InitialiseRenderWare(void)
 // missing altogether on PS2
 void CGame::ShutdownRenderWare(void)
 {
-#ifdef SCREEN_DROPLETS
-	ScreenDroplets::Shutdown();
-#endif
 #ifdef EXTENDED_PIPELINES
 	CustomPipes::CustomPipeShutdown();
 #endif
@@ -559,9 +552,6 @@ bool CGame::Initialise(const char* datFile)
 	CPed::Initialise();
 	CRouteNode::Initialise();
 	CEventList::Initialise();
-#ifdef SCREEN_DROPLETS
-	ScreenDroplets::Initialise();
-#endif
 	LoadingScreen("Loading the Game", "Find big buildings", nil);
 	CRenderer::Init();
 
@@ -751,9 +741,6 @@ void CGame::ReInitGameObjectVariables(void)
 	CStreaming::LoadAllRequestedModels(false);
 	CPed::Initialise();
 	CEventList::Initialise();
-#ifdef SCREEN_DROPLETS
-	ScreenDroplets::Initialise();
-#endif
 	CWeapon::InitialiseWeapons();
 	CPopulation::Initialise();
 	
