@@ -10,7 +10,7 @@ git submodule update --init --remote --force --recursive
 
 rm -rf build bin
 
-./premake5Linux --with-librw --with-lto gmake2
+./premake5Linux --with-librw gmake2
 ./printHash.sh src/extras/GitSHA1.cpp
 
 make -C build config=release_linux-amd64-librw_gl3_glfw-oal -j"$(nproc)"
