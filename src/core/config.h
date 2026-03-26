@@ -5,6 +5,8 @@
 #define VANILLA_DEFINES
 #endif
 
+#define NOVEHLIGHTCUBES
+
 enum Config {
 	NUMPLAYERS = 1,	// 4 on PS2
 
