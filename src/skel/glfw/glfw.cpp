@@ -26,6 +26,10 @@ long _dwOperatingSystemVersion;
 #include <stddef.h>
 #endif
 
+#ifdef __linux__
+#include <stdlib.h>   // for setenv
+#endif
+
 #include "common.h"
 #if (defined(_MSC_VER))
 #include <tchar.h>
@@ -1929,6 +1933,10 @@ main(int argc, char *argv[])
 	/* 
 	 * Initialize the 3D (RenderWare) components of the app...
 	 */
+	#ifdef __linux__
+    	setenv("XDG_SESSION_TYPE", "x11", 1); // force X11 session
+	#endif
+
 	if( rsEVENTERROR == RsEventHandler(rsRWINITIALIZE, &openParams) )
 	{
 		RsEventHandler(rsTERMINATE, nil);
