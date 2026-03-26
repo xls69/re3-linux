@@ -90,7 +90,6 @@
 #include "WaterCreatures.h"
 #include "postfx.h"
 #include "custompipes.h"
-#include "screendroplets.h"
 #include "VarConsole.h"
 #ifdef USE_TEXTURE_POOL
 #include "TexturePools.h"
@@ -273,18 +272,12 @@ CGame::InitialiseRenderWare(void)
 #ifdef EXTENDED_PIPELINES
 	CustomPipes::CustomPipeInit();	// need Scene.world for this
 #endif
-#ifdef SCREEN_DROPLETS
-	ScreenDroplets::InitDraw();
-#endif
 
 	return (true);
 }
 
 void CGame::ShutdownRenderWare(void)
 {
-#ifdef SCREEN_DROPLETS
-	ScreenDroplets::Shutdown();
-#endif
 #ifdef EXTENDED_PIPELINES
 	CustomPipes::CustomPipeShutdown();
 #endif
@@ -496,9 +489,6 @@ bool CGame::Initialise(const char* datFile)
 	CPed::Initialise();
 	CRouteNode::Initialise();
 	CEventList::Initialise();
-#ifdef SCREEN_DROPLETS
-	ScreenDroplets::Initialise();
-#endif
 	LoadingScreen("Loading the Game", "Find big buildings", nil);
 	CRenderer::Init();
 
@@ -678,9 +668,6 @@ void CGame::ReInitGameObjectVariables(void)
 	currArea = AREA_MAIN_MAP;
 	CPed::Initialise();
 	CEventList::Initialise();
-#ifdef SCREEN_DROPLETS
-	ScreenDroplets::Initialise();
-#endif
 	CWeapon::InitialiseWeapons();
 	CPopulation::Initialise();
 	

@@ -73,7 +73,6 @@
 #include "Ropes.h"
 #include "postfx.h"
 #include "custompipes.h"
-#include "screendroplets.h"
 #include "VarConsole.h"
 #ifdef USE_OUR_VERSIONING
 #include "GitSHA1.h"
@@ -1628,12 +1627,6 @@ Idle(void *arg)
 		if((TheCamera.m_BlurType == MOTION_BLUR_NONE || TheCamera.m_BlurType == MOTION_BLUR_LIGHT_SCENE) &&
 		   TheCamera.m_ScreenReductionPercentage > 0.0f)
 		        TheCamera.SetMotionBlurAlpha(150);
-
-#ifdef SCREEN_DROPLETS
-		CPostFX::GetBackBuffer(Scene.camera);
-		ScreenDroplets::Process();
-		ScreenDroplets::Render();
-#endif
 
 		tbStartTimer(0, "RenderMotionBlur");
 		TheCamera.RenderMotionBlur();
