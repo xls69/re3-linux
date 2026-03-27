@@ -1,4 +1,4 @@
 [submodule "vendor/librw"]
 	path = vendor/librw
-	url = https://github.com/aap/librw.git
+	url = https://github.com/xls69/librw.git
 	branch = master
