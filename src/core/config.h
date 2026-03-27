@@ -241,6 +241,7 @@ enum Config {
 #	define USE_PS2_RAND
 #	define RANDOMSPLASH	// use random splash as on PS2
 #	define PS2_MATFX
+#	define PS2_HUD
 #endif
 
 #ifdef VU_COLLISION
