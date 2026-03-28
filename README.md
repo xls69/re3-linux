@@ -22,10 +22,10 @@ The project has also been ported to the [Dreamcast](https://dca3.net/).
 
 ## Screenshots
 
-![re3 2021-02-11 22-57-03-23](https://user-images.githubusercontent.com/1521437/107704085-fbdabd00-6cbc-11eb-8406-8951a80ccb16.png)
-![re3 2021-02-11 22-43-44-98](https://user-images.githubusercontent.com/1521437/107703339-cbdeea00-6cbb-11eb-8f0b-07daa105d470.png)
-![re3 2021-02-11 22-46-33-76](https://user-images.githubusercontent.com/1521437/107703343-cd101700-6cbb-11eb-9ccd-012cb90524b7.png)
-![re3 2021-02-11 22-50-29-54](https://user-images.githubusercontent.com/1521437/107703348-d00b0780-6cbb-11eb-8afd-054249c2b95e.png)
+![re3 2021-02-11 22-57-03-23](https://github.com/xls69/re3-linux/blob/master/res/images/re3_1.png?raw=true)
+![re3 2021-02-11 22-43-44-98](https://github.com/xls69/re3-linux/blob/master/res/images/re3_2.png?raw=true)
+![re3 2021-02-11 22-46-33-76](https://github.com/xls69/re3-linux/blob/master/res/images/re3_3.png?raw=true)
+![re3 2021-02-11 22-50-29-54](https://github.com/xls69/re3-linux/blob/master/res/images/re3_4.png?raw=true)
 
 ## Improvements
 
