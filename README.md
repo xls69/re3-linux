@@ -102,7 +102,7 @@ For FreeBSD using premake, proceed: [Building on FreeBSD](https://github.com/xls
 ## Contributing
 As long as it's not linux/cross-platform skeleton/compatibility layer, all of the code on the repo that's not behind a preprocessor condition(like FIX_BUGS) are **completely** reversed code from original binaries.  
 
-We **don't** accept custom codes, as long as it's not wrre3-linuxed via preprocessor conditions, or it's linux/cross-platform skeleton/compatibility layer.
+We **don't** accept custom codes, as long as it's not wrapped via preprocessor conditions, or it's linux/cross-platform skeleton/compatibility layer.
 
 We accept only these kinds of PRs;
 
