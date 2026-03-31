@@ -102,14 +102,30 @@ const float LCS_ZOOM_THREE_DISTANCE[] = { 6.0f, 6.0f, 15.9f, 15.9f, 15.0f };
 
 CCamera::CCamera(void)
 {
+	#if GTA_VERSION >= GTAVC_PC_11 || defined(FIX_BUGS)
+	m_fMouseAccelHorzntl = 0.0025f;
+	m_fMouseAccelVertical = 0.0025f;
+	#endif
 	Init();
 }
 
 void
 CCamera::Init(void)
 {
-	memset(this, 0, sizeof(CCamera));	// this is fine, no vtable
-	m_pRwCamera = nil;
+	#if GTA_VERSION >= GTAVC_PC_11 || defined(FIX_BUGS)
+		float fMouseAccelHorzntl = m_fMouseAccelHorzntl;
+		float fMouseAccelVertical = m_fMouseAccelVertical;
+	#endif
+	{
+	memset(this, 0, sizeof(CCamera));	// getting rid of vtable, eh?
+	
+	#if GTA_VERSION >= GTAVC_PC_11 || defined(FIX_BUGS)
+		m_fMouseAccelHorzntl = fMouseAccelHorzntl;
+		m_fMouseAccelVertical = fMouseAccelVertical;
+	#endif
+		m_pRwCamera = nil;
+	
+	}
 	m_bPlayerWasOnBike = false;
 	m_1rstPersonRunCloseToAWall = false;
 	m_fPositionAlongSpline = 0.0f;
@@ -197,8 +213,8 @@ CCamera::Init(void)
 		m_bMusicFading = false;
 		m_fTimeToFadeMusic = 0.0f;
 		m_fFLOATingFadeMusic = 0.0f;
-		m_fMouseAccelVertical = 0.0025f;
-		m_fMouseAccelHorzntl = 0.0025f;
+		//m_fMouseAccelVertical = 0.0025f; // do NOT reset mouse sens on new game
+		//m_fMouseAccelHorzntl = 0.0025f;
 	}
 	if(FrontEndMenuManager.m_bWantToRestart)
 		m_fTimeToFadeMusic = 0.0f;
